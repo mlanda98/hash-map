@@ -14,4 +14,22 @@ class HashTable {
    return hashCode % this.size;
  } 
 
+ insert(key, value){
+  const index = this.hash(key);
+  if (!this.buckets[index]){
+    this.buckets[index] = [];
+  }
+  for (let pair of this.buckets[index]){
+    if (pair[0] === key){
+      pair[1] = value;
+      return;
+    }
+  }
+  this.buckets[index].push([key, value]);
+ } 
 }
+
+const HashTable = new HashTable();
+
+HashTable.insert("name", "Nata");
+HashTable.insert("age", 24);
