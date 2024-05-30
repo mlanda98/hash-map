@@ -27,6 +27,19 @@ class HashTable {
   }
   this.buckets[index].push([key, value]);
  } 
+
+ get(key){
+  const index = this.hash(key);
+  if (!this.buckets[index]){
+    return null;
+  } 
+  for (let pair of this.buckets[index]){
+    if (pair[0] === key){
+      return pair[1];
+    }
+  }
+  return null;
+ }
 }
 
 const HashTable = new HashTable();
