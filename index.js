@@ -68,6 +68,11 @@ class HashTable {
   length(){
     return this.count;
   }
+
+  clear(){
+    this.buckets = new Array(this.size);
+    this.count = 0;
+  }
 }
 
 
