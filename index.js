@@ -47,7 +47,22 @@ class HashTable {
       return false;
     }
   }
+
+  remove(key){
+    const index = this.hash(key);
+    if (!this.buckets[index]){
+      return null;
+    }
+    for (let i = 0; i < this.buckets[index].length; i++);{
+      if (this.buckets[index][i][0] === key){
+        const removedPair = this.buckets[index].splice(i, 1);
+        return removedPair[0][1];
+      }
+    }
+    return null;
+  }
 }
+
 
 
 
