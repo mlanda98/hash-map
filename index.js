@@ -73,6 +73,38 @@ class HashTable {
     this.buckets = new Array(this.size);
     this.count = 0;
   }
+
+  keys(){
+    const keys = [];
+    for (let bucket of this.buckets){
+      if (bucket){
+        for (let pair of bucket){
+          keys.push(pair[0]);
+        }
+      }
+    }
+    return keys;
+  }
+
+  values(){
+    const values = [];
+    for (let bucket of this.buckets){
+      if (bucket){
+        for (let pair of bucket){
+          values.push(pair[1]);
+        }
+      }
+    }
+    return values;
+  }
+
+  display(){
+    for (let i = 0; i < this.size; i++){
+      if (this.buckets[i]){
+        console.log(`Bucket ${i}:`, this.buckets[i]);
+      }
+    }
+  }
 }
 
 
