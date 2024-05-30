@@ -2,6 +2,7 @@ class HashTable {
   constructor(size = 100) {
     this.buckets = new Array(size);
     this.size = size;
+    this.count = 0;
   }
 
   hash(key) {
@@ -26,6 +27,7 @@ class HashTable {
       }
     }
     this.buckets[index].push([key, value]);
+    this.count++;
   }
 
   get(key) {
@@ -56,12 +58,18 @@ class HashTable {
     for (let i = 0; i < this.buckets[index].length; i++);{
       if (this.buckets[index][i][0] === key){
         const removedPair = this.buckets[index].splice(i, 1);
+        this.count--;
         return removedPair[0][1];
       }
     }
     return null;
   }
+
+  length(){
+    return this.count;
+  }
 }
+
 
 
 
