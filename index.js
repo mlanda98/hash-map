@@ -55,7 +55,7 @@ class HashTable {
     if (!this.buckets[index]){
       return null;
     }
-    for (let i = 0; i < this.buckets[index].length; i++);{
+    for (let i = 0; i < this.buckets[index].length; i++){
       if (this.buckets[index][i][0] === key){
         const removedPair = this.buckets[index].splice(i, 1);
         this.count--;
@@ -111,7 +111,21 @@ class HashTable {
 
 
 
-const HashTable = new HashTable();
+const hashTable = new HashTable();
 
-HashTable.insert("name", "Nata");
-HashTable.insert("age", 24);
+hashTable.insert("name", "Nata");
+hashTable.insert("age", 24);
+
+console.log(hashTable.get("name"));
+console.log(hashTable.get("age"));
+
+hashTable.remove("age");
+console.log(hashTable.get("age"));
+console.log(hashTable.contains("age"));
+console.log(hashTable.length());
+console.log(hashTable.keys());
+console.log(hashTable.values());
+hashTable.display();
+hashTable.clear();
+console.log();
+hashTable.display();
