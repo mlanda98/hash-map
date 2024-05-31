@@ -127,5 +127,4 @@ console.log(hashTable.keys());
 console.log(hashTable.values());
 hashTable.display();
 hashTable.clear();
-console.log();
 hashTable.display();
